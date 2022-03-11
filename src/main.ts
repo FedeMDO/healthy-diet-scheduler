@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { PrismaService } from './prisma/prisma.service';
 
 async function bootstrap() {
+  // TODO enable dto validations
+
   const app = await NestFactory.create(AppModule);
 
   const prismaService: PrismaService = app.get(PrismaService);
