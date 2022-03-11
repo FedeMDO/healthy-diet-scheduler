@@ -10,7 +10,7 @@ import {
 import { DailyPlanService } from './daily-plan.service';
 import { CreateDailyPlanDto } from './dto/create-daily-plan.dto';
 import { UpdateDailyPlanDto } from './dto/update-daily-plan.dto';
-@Controller('user')
+@Controller('daily-plan')
 export class DailyPlanController {
   constructor(private readonly dailyPlanService: DailyPlanService) {}
 
@@ -35,10 +35,13 @@ export class DailyPlanController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateDailyPlanDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateDailyPlanDto: UpdateDailyPlanDto,
+  ) {
     return this.dailyPlanService.update({
       where: { id: Number(id) },
-      data: updateUserDto,
+      data: updateDailyPlanDto,
     });
   }
 
