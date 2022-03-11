@@ -23,6 +23,7 @@ export class DailyPlanService {
   ): Promise<DailyPlan | []> {
     return await this.prismaService.dailyPlan.findUnique({
       where: dailyPlanWhereUniqueInput,
+      include: { user: true, plannedMeals: true },
     });
   }
 

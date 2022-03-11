@@ -21,6 +21,7 @@ export class UserService {
   ): Promise<User | []> {
     return await this.prismaService.user.findUnique({
       where: userWhereUniqueInput,
+      include: { dailyPlans: { include: { plannedMeals: true } } },
     });
   }
 
