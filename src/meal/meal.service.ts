@@ -18,7 +18,7 @@ export class MealService {
 
   async findOne(
     MealWhereUniqueInput: Prisma.MealWhereUniqueInput,
-  ): Promise<Meal | []> {
+  ): Promise<Meal | null> {
     return await this.prismaService.meal.findUnique({
       where: MealWhereUniqueInput,
       include: { dailyPlan: true },

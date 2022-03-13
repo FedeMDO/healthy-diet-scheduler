@@ -20,7 +20,7 @@ export class DailyPlanService {
 
   async findOne(
     dailyPlanWhereUniqueInput: Prisma.DailyPlanWhereUniqueInput,
-  ): Promise<DailyPlan | []> {
+  ): Promise<DailyPlan | null> {
     return await this.prismaService.dailyPlan.findUnique({
       where: dailyPlanWhereUniqueInput,
       include: { user: true, plannedMeals: true },
